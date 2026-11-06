@@ -1,0 +1,65 @@
+{
+  "business": {
+    "name": "Premier Landscape & Design",
+    "shortName": "Premier",
+    "phone": "(937) 216-6464",
+    "email": "",
+    "address": { "street": "", "city": "Dayton", "state": "OH", "zip": "" },
+    "serviceAreas": ["Dayton, OH"],
+    "hours": [],
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "google": "",
+      "yelp": "",
+      "nextdoor": "",
+      "youtube": ""
+    }
+  },
+  "branding": {
+    "logo": {
+      "holiday": {
+        "src": "/brand/premier-christmas-logo.webp",
+        "alt": "Premier Landscape & Design"
+      },
+      "standard": {
+        "src": "/brand/premier-standard-logo.webp",
+        "alt": "Premier Landscape & Design"
+      }
+    },
+    "favicon": "/favicon.png",
+    "colors": {},
+    "images": {}
+  },
+  "services": {
+    "enabled": [
+      "christmasLights",
+      "lawnCare",
+      "landscapeDesign",
+      "mulching",
+      "treeShrub",
+      "seasonalCleanup",
+      "snowRemoval"
+    ],
+    "overrides": {}
+  },
+  "content": {
+    "hero": {},
+    "about": {},
+    "finalCta": {},
+    "testimonials": []
+  },
+  "seo": {
+    "siteUrl": "",
+    "title": "",
+    "description": "",
+    "ogImage": "/brand/premier-christmas-logo.png",
+    "locale": "en_US"
+  },
+  "form": {
+    "provider": "demo",
+    "formspreeId": "",
+    "webhookUrl": "",
+    "showDemoNotice": true
+  }
+}

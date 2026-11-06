@@ -1,0 +1,186 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-burgundy: var(--burgundy);
+  --color-red-light: var(--red-light);
+  --color-evergreen: var(--evergreen);
+  --color-gold: var(--gold);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+ * Design system — Premier Landscape & Design.
+ *
+ * Palette (Holiday Mode, the default; red/burgundy/charcoal sampled from the
+ * supplied Premier logos):
+ *   Dark charcoal    #17212A  -> --primary / --ink (structure, text, dark bands)
+ *   Warm white       #FAF9F6  -> --background
+ *   Logo red         #A71D3E  -> --accent (CTAs, icons, highlights)
+ *   Deep burgundy     #7A0A24  -> --burgundy (hover / deep red bands)
+ *   Evergreen        #244D3B  -> --evergreen (restrained secondary accent)
+ *
+ * Landscaping Mode swaps --accent to evergreen via [data-season="landscaping"]
+ * (set from src/config/season.ts). Components only ever use the tokens.
+ *
+ * Typography: Playfair Display (headings) + Manrope (body), loaded in __root.tsx.
+ */
+
+:root {
+  --radius: 0.75rem;
+
+  --ink: #17212a;
+  --ink-soft: #243342;
+  --burgundy: #7a0a24;
+  --evergreen: #244d3b;
+  --gold: #f0c27b; /* warm bulb glow: small accents only */
+  --red-light: #f06a80; /* red tuned for legibility on dark backgrounds */
+
+  --background: #faf9f6;
+  --foreground: #17212a;
+
+  --card: #ffffff;
+  --card-foreground: #17212a;
+  --popover: #ffffff;
+  --popover-foreground: #17212a;
+
+  --primary: #17212a;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3efe9;
+  --secondary-foreground: #17212a;
+
+  --muted: #f3efe9;
+  --muted-foreground: #55616d;
+
+  --accent: #a71d3e;
+  --accent-foreground: #ffffff;
+
+  --destructive: #b42318;
+  --destructive-foreground: #ffffff;
+
+  --border: #e6e0d8;
+  --input: #e6e0d8;
+  --ring: #a71d3e;
+
+  --chart-1: #a71d3e;
+  --chart-2: #244d3b;
+  --chart-3: #7a0a24;
+  --chart-4: #17212a;
+  --chart-5: #f06a80;
+
+  --sidebar: #faf9f6;
+  --sidebar-foreground: #17212a;
+  --sidebar-primary: #a71d3e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3efe9;
+  --sidebar-accent-foreground: #17212a;
+  --sidebar-border: #e6e0d8;
+  --sidebar-ring: #a71d3e;
+}
+
+/* Landscaping Mode — year-round palette. Activated by season.ts. */
+:root[data-season="landscaping"] {
+  --accent: #244d3b;
+  --ring: #244d3b;
+  --burgundy: #1b3a2c;
+  --red-light: #7fc6a0;
+  --sidebar-primary: #244d3b;
+  --sidebar-ring: #244d3b;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Smooth in-page anchor scrolling for the sticky header offset. */
+html {
+  scroll-behavior: smooth;
+}
+
+@utility section-pad {
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+/* Tasteful holiday detail: a restrained string of warm-white bulbs used as a
+   divider. Decorative only (aria-hidden at the call site). */
+@utility light-string {
+  height: 10px;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    #ffd9a0 0 2px,
+    rgba(255, 217, 160, 0.35) 2.5px,
+    transparent 5px
+  );
+  background-size: 26px 10px;
+  background-repeat: repeat-x;
+  opacity: 0.8;
+}
+
+/* Honor reduced-motion preferences for hover transforms. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
